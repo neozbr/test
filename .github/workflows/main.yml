@@ -3,7 +3,7 @@ name: Unzip File
 on:
   push:
     paths:
-      - '**/*.zip'  # Detecta qualquer arquivo .zip enviado para o repositório
+      - '**/*.zip'
 
 jobs:
   unzip:
@@ -13,8 +13,14 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+      - name: List files in the repository
+        run: ls -l
+
       - name: Install unzip
         run: sudo apt-get install unzip
 
-      - name: Unzip file
-        run: unzip path/to/your/file.zip -d path/to/extract/directory
+      - name: Create extraction directory
+        run: mkdir -p ./extracted_files
+
+      - name: Unzip file(s)
+        run: unzip '**/*.zip' -d ./extracted_files
