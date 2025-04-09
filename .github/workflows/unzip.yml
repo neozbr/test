@@ -13,14 +13,14 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: List files in the repository
-        run: ls -l
+      - name: List files to check ZIP file existence
+        run: ls -R  # Este comando lista todos os arquivos e diretórios
 
       - name: Install unzip
         run: sudo apt-get install unzip
 
       - name: Create extraction directory
-        run: mkdir -p ./extracted_files
+        run: mkdir -p ./extracted_files  # Cria o diretório de extração
 
-      - name: Unzip file(s)
-        run: unzip 'golpe-zero-landing-page-main.zip' -d ./extracted_files
+      - name: Unzip file
+        run: unzip './golpe-zero-landing-page-main.zip' -d ./extracted_files  # Descompacta o arquivo
