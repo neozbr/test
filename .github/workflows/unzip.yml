@@ -23,4 +23,4 @@ jobs:
         run: mkdir -p ./extracted_files
 
       - name: Unzip file(s)
-        run: unzip '**/*.zip' -d ./extracted_files
+        run: unzip 'golpe-zero-landing-page-main.zip' -d ./extracted_files
